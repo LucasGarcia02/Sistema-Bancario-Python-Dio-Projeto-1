@@ -22,7 +22,7 @@ while True:
             saldo += valor
             extrato += f"Deposito: R$ {valor:.2f}\n"
         else:
-            print("Operação falhou! O valor informado é inválido.")
+            print("Operação não realizada! O valor informado é inválido.")
 
     elif opcao == "s":
 
@@ -32,11 +32,12 @@ while True:
         excedeu_saques = numero_saques >= LIMITE_SAQUES
         
         if excedeu_saldo:
-            print("Operação falhou! Sem saldo suficiente")
+
+            print("Operação não realizada! Sem saldo suficiente")
         elif excedeu_limite:
-            print("Operação falhou! Excedeu o limite")
+            print("Operação não realizada! Excedeu o limite")
         elif excedeu_saques:
-            print("Operação falhou! Excedeu o numero de saques")
+            print("Operação não realizada! Excedeu o numero de saques")
         elif valor > 0:
             saldo -= valor
             extrato += f"Saque: R$ {Valor:.2f}\n"
@@ -46,14 +47,14 @@ while True:
 
     elif opcao == "e":
 
-        center = "EXTRATO"
-        print(center.center(50,"="))
+        posicao = "EXTRATO"
+        print(posicao.center(50,"="))
         print("Não foram realizadas movimentações" if not extrato else extrato)
-        print("*"*50)
+        print("="*50)
         print(f"Saldo: R$ {saldo:.2f}")
-        center = ""
-        print(center.center(50,"*"))
+        posicao = ""
+        print(posicao.center(50,"*"))
     elif opcao == "q":
         break
     else:
-        print("Operação invalida, por favor, selecione a operação desejada.")
+        print("Operação inválida. Escolha uma operação válida.")
